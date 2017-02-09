@@ -40,7 +40,7 @@ passport.use(new Auth0Strategy({
   clientID: '<your_client_id>',
   clientSecret: '<your_client_secret>',
   callbackURL: 'http://localhost:3000/auth/callback'
-}, function(accessToken, refreshToken, profile, done) {
+}, function(accessToken, refreshToken, extraParams, profile, done) {
   return done(null, profile);
 }));
 ```
@@ -73,7 +73,7 @@ Now we're going to create an endpoint that returns the current logged in user's 
 ####GET /me
 Create this route in your server.js that returns the user's auth profile data. The data is stored in `req.user` if you've set everything up correctly. Return a JSON representation of this data at the `/me` endpoint.
 
-Use Postman or the browser to verify that you can in fact get the JSON data from the `/me` endpoint.
+Use the browser to verify that you can in fact get the JSON data from the `/me` endpoint.
 
 
 
