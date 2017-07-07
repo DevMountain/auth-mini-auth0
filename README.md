@@ -32,7 +32,7 @@ Now let's put in the code necessary to get our authentication working:
 
 `app.use(passport.session())`
 
-* Define the FacebookStrategy
+* Define the Auth0Strategy
 
 ```javascript
 passport.use(new Auth0Strategy({
