@@ -3,12 +3,12 @@ UserViewer
 
 A mini-project to practice Passport/Node.js
 
-##Objectives
+## Objectives
 Create a simple app that shows Auth0 Profile information.
 
 You can use the [passport-auth0](https://github.com/auth0/passport-auth0) GitHub repo for a guide.
 
-##Step 1: Set up passport, passport-auth0, express
+## Step 1: Set up passport, passport-auth0, express
 Set up a server.js file and include these npm dependencies:
 * express
 * express-session
@@ -45,16 +45,16 @@ passport.use(new Auth0Strategy({
 }));
 ```
 
-##Step 2: Define your auth endpoints
+## Step 2: Define your auth endpoints
 Create two routes that will handle your Auth0 auth.
 
-####GET /auth
+#### GET /auth
 This route simply implements the passport.authenticate method, passing 'auth0' as the parameter.
 
-####GET /auth/callback
+#### GET /auth/callback
 This route needs to pass the passport.authenticate method again, except we also need to pass in an object that passes the successRedirect and failureRedirect paths.
 
-##Step 3: Create the deserialize/serializer methods on passport.
+## Step 3: Create the deserialize/serializer methods on passport.
 Since you won't be doing anything further than just passing objects to/from passport and the session, we just need bare bones methods here:
 
 ```
@@ -67,10 +67,10 @@ passport.deserializeUser(function(obj, done) {
 });
 ```
 
-###Step 4: Create viewer endpoint
+### Step 4: Create viewer endpoint
 Now we're going to create an endpoint that returns the current logged in user's auth profile data.
 
-####GET /me
+#### GET /me
 Create this route in your server.js that returns the user's auth profile data. The data is stored in `req.user` if you've set everything up correctly. Return a JSON representation of this data at the `/me` endpoint.
 
 Use the browser to verify that you can in fact get the JSON data from the `/me` endpoint.
